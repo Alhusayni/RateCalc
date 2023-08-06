@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8">
+  <title>عن حاسبة التمويل العقاري</title>
+  {% load static %}
+  {% load humanize %}
+
+
+
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- theme meta -->
+  <meta name="theme-name" content="dtox" />
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/x-icon" href="https://imgtr.ee/images/2023/08/04/ebc562252c9c9c54708030d85ff6ec28.png">
+
+
+
+
+
+</head>
+<body>
+<section style="background-image: url({% static 'images/hero-area/ban.png' %}); background-repeat: no-repeat;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center zindex-1">
+          <br>
+        <h3 class="mb-3"><img src="https://imgtr.ee/images/2023/08/04/274dac04f2c8b76906880632c04c7752.png" class="img-fluid" alt="Responsive image"><br></h3>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section-lg about pb-0 ayat_ar_txt text-right" dir="rtl">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="section-title">عن حاسبة التمويل العقاري</h2>
+      </div>
+      <div class="col-lg-12 mb-100">
+        <p>حاسبة التمويل عقاري، هي أداة هدفها مساعدتك لمعرفة ملائتك المالية وقدرتك حيال شراء عقار عن طريق التمويل البنكي</p>
+        <p>تقوم الأداة بحساب جميع المدخلات المطلوبة (قيمة العقار، الراتب، الاستخقاق لدعم الاسكان، الدفعة الأولى، ونسبة الفائدة
+        ليتم على ضوئها تحديد حساب تكلفة العقار الكليه والاستقطاع الشهري ونسبتها من اجمالي الراتب</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+
+<footer class="footer-section footer" style="background-image: url({% static 'images/hero-area/footer-bg.png' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <a href="{% url 'home' %}">
+          <img class="img-fluid" src="https://imgtr.ee/images/2023/08/04/274dac04f2c8b76906880632c04c7752.png" alt="logo">
+        </a>
+      </div>
+      <!-- footer menu -->
+      <nav class="col-lg-8 align-self-center mb-5">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="{% url 'home' %}">حاسبة التمويل العقاري</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'policy' %}">سياسة الخصوصية</a></li>
+          <li class="list-inline-item"><a href="{% url 'about' %}">عن الأداة</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'news' %}">أخر الأخبار</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'contact' %}">تواصل معنا</a></li>
+        </ul>
+      </nav>
+      <!-- footer social icon -->
+    </div>
+  </div>
+</footer>
+
+</html>

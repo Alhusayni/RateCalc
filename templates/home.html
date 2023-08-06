@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8">
+  <title>حاسبة التمويل</title>
+  {% load static %}
+  {% load humanize %}
+
+
+
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- theme meta -->
+  <meta name="theme-name" content="dtox" />
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/x-icon" href="https://imgtr.ee/images/2023/08/04/ebc562252c9c9c54708030d85ff6ec28.png">
+
+
+
+
+
+</head>
+
+<body>
+<!-- hero area -->
+<section style="background-image: url({% static 'images/hero-area/ban.png' %}); background-repeat: no-repeat;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center zindex-1">
+          <br><br>
+        <h3 class="mb-3"><img src="https://imgtr.ee/images/2023/08/04/274dac04f2c8b76906880632c04c7752.png" class="img-fluid" alt="Responsive image"><br></h3>
+            <div class="col-10 mx-auto">
+      <div class="team-slider">
+        <!-- team-member -->
+        <div class="team-member">
+            <h5> اداة هدفها مساعدتك على التخطيط المالي والذي يمكنك من خلالها تحديد ملائتك ومقدرتك الماليه للتمويل العقاري</h5>
+            <h3>ـــــــــــــ</h3>
+          <h5 style="color: red"><bold>
+              أدخل المعلومات المطلوبة</bold></h5><br>
+            <div class="form-group">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input class="btn btn-primary" type="submit" value="احسب">
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- feature -->
+    {% if info %}
+<section class="section feature" id="feature" dir="ltr">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">النتيجة</h2>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-plus feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>اجمالي الدعم المقدم من وزارة الإسكان</h4>
+            <p><b><div class="p-3 mb-2 bg-secondary text-white">{{ support|intcomma }}</div>
+</b> </p>
+              <p><small>في حال اختيار منتج الدفعة المقدمة*</small></p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-calendar feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>القسط الشهري</h4>
+            <p><b>{{ monthlyPay|floatformat:0|intcomma }}</b></p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-home feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>اجمالي المبلغ الذي سيدفع للعقار</h4>
+            <p><b>{{ estatePrice|floatformat:0|intcomma }}</b></p>
+              <p><small>هي قيمة العقار مضاف لها الفائدة*</small></p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-money feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>اجمالي الفائدة</h4>
+            <p><b>{{ intrstPrice|floatformat:0|intcomma }}</b></p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-pie-chart feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>نسبة الاستقطاع من مجموع الراتب</h4>
+            <p><b>{{ diff|floatformat:2|intcomma }}%</b></p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-wallet feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>اجمالي المبلغ الذي سيدفع للبنك</h4>
+            <p><b>{{ totalPrice|floatformat:0|intcomma }}</b></p>
+              <p><small>المبلغ المطلوب من البنك مضاف له الفائدة*</small></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    {% else %}
+    {% endif %}
+
+
+
+<div class="container">
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="https://sakani.sa/app/assets/icons/logo.svg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title, ayat_ar_txt text-right" dir="rtl">لتأكد من حالة استحقاقك لدعم السكني<br><a href="https://sakani.sa/app/eligibility/check" target="_blank">اضغط هنا</a>
+  </h5>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="https://gcdnb.pbrd.co/images/zb6sUuHkjX4F.png?o=1" alt="Card image cap">
+    <div class="card-body">
+        <br>
+      <h5 class="card-title, ayat_ar_txt text-right" dir="rtl">لتأكد من استحقاقك مبادرة تحمل ضريبة القيمة المضافة للمسكن الأول <a href="https://sakani.sa/services/vat-details" target="_blank">اضغط هنا</a></h5>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title, ayat_ar_txt text-right" dir="rtl">*ينصح بعض خبراء الإقتصاد و الاستثمار بأن لا تتجاوز نسبة الاقتراض للمسكن 40% من الراتب</h5>
+
+  <p class="ayat_ar_txt text-right"> <i class="ti-dribbble"></i>
+      <a href="https://www.forbes.com/advisor/mortgages/mortgage-to-income-ratio/" target="_blank">فوربس ادفايزور</a></p>
+  <p class="ayat_ar_txt text-right"> <i class="ti-twitter-alt"></i>
+      <a href="https://twitter.com/salahkhashoggi/status/1685709258535346176?s=20" target="_blank">صلاح خاشقجي</a></p>
+  <p class="ayat_ar_txt text-right"> <i class="ti-twitter-alt"></i>
+      <a href="https://twitter.com/AhmedAllshehri/status/1549064503542927365?s=20" target="_blank">أحمد الشهري</a></p>
+  <p class="ayat_ar_txt text-right"> <i class="ti-twitter-alt"></i>
+      <a href="https://twitter.com/malaa_tech/status/1581730844271472640?s=20" target="_blank">ملاءة للتقنية المالية</a></p>
+
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+</body>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <p> للإقتراحات: admin@ratecalcsa.com</p>
+      </div>
+      <!-- footer menu -->
+
+      <!-- footer social icon -->
+    </div>
+  </div>
+</footer>
+<footer class="footer-section footer" style="background-image: url({% static 'images/hero-area/footer-bg.png' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <a href="{% url 'home' %}">
+          <img class="img-fluid" src="https://imgtr.ee/images/2023/08/04/274dac04f2c8b76906880632c04c7752.png" alt="logo">
+        </a>
+      </div>
+      <!-- footer menu -->
+      <nav class="col-lg-8 align-self-center mb-5">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="{% url 'home' %}">حاسبة التمويل العقاري</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'policy' %}">سياسة الخصوصية</a></li>
+          <li class="list-inline-item"><a href="{% url 'about' %}">عن الأداة</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'news' %}">أخر الأخبار</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="{% url 'contact' %}">تواصل معنا</a></li>
+        </ul>
+      </nav>
+      <!-- footer social icon -->
+    </div>
+  </div>
+</footer>
+
+
+</html>
